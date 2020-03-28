@@ -78,3 +78,16 @@ IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30
 
 ![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/demo1.jpg?raw=true)
 
+# 开发指南
+本项目非常轻量级，开箱即用。10分钟即可完成项目搭建。
+
+- 至少需要安装以下程序:mysql\mongo，并修改application.properties中的数据库配置
+- 在mysql中创建inteport数据库并执行resources/igreport.sql中的ddl脚本
+- 运行IgreportCoreApplication
+- 访问localhost:8081即可
+
+# 支持作者
+
+由于开发不易,女攻城狮更不易！因此github只公开后端源码+经编译后的前端源码，项目可运行可使用，但无法二次开发前端原始vue源码。
+仅需一步即可获取完整源码：在github上点个star;关注【BDStar大数据】公众号并发送github上点击star的截图;
+【程序猿小姐姐看到会第一时间将源码发送给您！】

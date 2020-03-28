@@ -115,10 +115,10 @@ INSERT INTO `igreport_user_info`(`id`, `username`, `password`, `role`, `permissi
 INSERT INTO `xxl_job_lock` ( `lock_name`) VALUES ( 'schedule_lock');
 
 -- 测试TIDB数据源 没环境暂时用mysql代替
--- create database tidb;
--- CREATE TABLE `test` (
---   `name` varchar(50) NOT NULL COMMENT '名字',
---   `price1` decimal(16,2) DEFAULT NULL COMMENT '最低价格',
---   `amt` double(16,2) DEFAULT NULL COMMENT '最高价格',
---   `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '上架时间'
--- ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+create database tidb;
+CREATE TABLE `fruit_info` (
+  `name` varchar(50) NOT NULL COMMENT '名字',
+  `price1` decimal(16,2) DEFAULT NULL COMMENT '最低价格',
+  `amt` double(16,2) DEFAULT NULL COMMENT '最高价格',
+  `add_time` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '上架时间'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

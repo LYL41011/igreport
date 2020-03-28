@@ -5,6 +5,7 @@ IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据�
 登录账号：普通用户(liuyanling/123456) 管理员用户(admin/88888888)
 
 - 关注【BDStar大数据】公众号，获取更多学习资源
+
 ![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/bdstar.jpg?raw=true)
 
 
@@ -63,4 +64,17 @@ IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30
 - 10、管理员可以查看和操控所有的任务、可以管理用户、普通用户只可以查看自己的任务
 
 
+# 一个完整配置的Demo案例
+
+假设mysql数据源有一个表叫做user_info表,报表需求是每天统计一下总人数,每天8点执行跑批。
+那么点击左侧菜单【我的任务】，再点击【新建任务】
+按照要求配置相关信息，包括报表名称、报表描述、数据源、调度频率(即什么时候执行任务，cron表达式),授权用户,元数据格式,报表时间(对应报表的开始时间和结束时间，界面上可查看具体提示),SQL，如图所示:
+
+![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/demo.jpg?raw=true)
+
+配置完任务后可在【我的任务】中查看到该任务，默认不启动，需要用户手动【启动】，启动之前建议先点击【执行】，这样会马上执行一次，可以查看日志任务是否成功，相当于我们先测试一遍，成功的任务再启动。
+点击【执行】后可立刻在【调度日志】中查看到调度信息，点击【日志】可查看具体日志信息。
+假如任务显示成功执行，则可在【我的报表】中查询报表信息，起止时间是根据配置任务时的报表时间来决定的，比如刚刚我们跑的是按天的报表，今天是3.28日，那么起止时间分别为3.27和3.28日。
+
+![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/demo1.jpg?raw=true)
 

@@ -3,8 +3,9 @@ IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据�
 
 - [项目演示地址](http://101.37.90.241:8081) 
 登录账号：普通用户(liuyanling/123456) 管理员用户(admin/88888888)
-关注【BDStar大数据】公众号，获取更多学习资源
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/bdstar.90a69042?raw=true)
+
+- 关注【BDStar大数据】公众号，获取更多学习资源
+![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/bdstar.jpg?raw=true)
 
 
 

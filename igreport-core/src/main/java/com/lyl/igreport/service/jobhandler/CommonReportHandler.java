@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 
 /**
+ * 通用报表Handler
  * Created by liuyanling on 2020/2/6
  */
 @Component

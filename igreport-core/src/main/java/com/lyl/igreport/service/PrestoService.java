@@ -1,14 +1,11 @@
 package com.lyl.igreport.service;
 
-import com.lyl.igreport.dto.QueryPrestoDto;
-
 import java.util.HashMap;
 import java.util.List;
 
 /**
- * @author: Liuyanling
- * @date: 2020/1/16
- * @description:
+ * presto相关操作类
+ * Created by liuyanling on 2020/2/6
  */
 public interface PrestoService {
     /**

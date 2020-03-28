@@ -15,6 +15,7 @@ import com.lyl.igreport.service.JobService;
 import com.xxl.job.core.biz.model.ReturnT;
 import com.xxl.job.core.enums.ExecutorBlockStrategyEnum;
 import com.xxl.job.core.glue.GlueTypeEnum;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -368,26 +369,27 @@ public class JobServiceImpl implements JobService {
             result.put("successDistribute", successDistribute);
 
 
-
-            //最近一周耗时比例图
-            JSONArray consumeDistribute = new JSONArray();
-            Arrays.asList(logReportList.get(logReportList.size()-1).getConsumeTimeDistribute().split(",")).forEach(e->{
-                JSONObject consumeDistributeObject = new JSONObject();
-                consumeDistributeObject.put("name", e.split("\\+\\+")[0]);
-                consumeDistributeObject.put("y", Integer.parseInt(e.split("\\+\\+")[1]));
-                consumeDistribute.add(consumeDistributeObject);
-            });
-            result.put("consumeDistribute", consumeDistribute);
-
-
             //最近一周耗时任务Top
             JSONArray consumeTop = new JSONArray();
-            Arrays.asList(logReportList.get(logReportList.size()-1).getConsumeTimeTop10().split(",")).forEach(e->{
-                JSONObject consumeTopObject = new JSONObject();
-                consumeTopObject.put("name", e.split("\\+\\+")[0]);
-                consumeTopObject.put("data", Arrays.asList(Integer.parseInt(e.split("\\+\\+")[1])));
-                consumeTop.add(consumeTopObject);
-            });
+            //最近一周耗时比例图
+            JSONArray consumeDistribute = new JSONArray();
+            if(logReportList.size()>0 && StringUtils.isNotEmpty(logReportList.get(logReportList.size()-1).getConsumeTimeDistribute())){
+
+                Arrays.asList(logReportList.get(logReportList.size()-1).getConsumeTimeDistribute().split(",")).forEach(e->{
+                    JSONObject consumeDistributeObject = new JSONObject();
+                    consumeDistributeObject.put("name", e.split("\\+\\+")[0]);
+                    consumeDistributeObject.put("y", Integer.parseInt(e.split("\\+\\+")[1]));
+                    consumeDistribute.add(consumeDistributeObject);
+                });
+                Arrays.asList(logReportList.get(logReportList.size()-1).getConsumeTimeTop10().split(",")).forEach(e->{
+                    JSONObject consumeTopObject = new JSONObject();
+                    consumeTopObject.put("name", e.split("\\+\\+")[0]);
+                    consumeTopObject.put("data", Arrays.asList(Integer.parseInt(e.split("\\+\\+")[1])));
+                    consumeTop.add(consumeTopObject);
+                });
+            }
+
+            result.put("consumeDistribute", consumeDistribute);
             result.put("consumeTop", consumeTop);
 
             //最近一周任务数量增量图

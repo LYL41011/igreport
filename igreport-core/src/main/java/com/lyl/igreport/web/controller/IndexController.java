@@ -57,7 +57,7 @@ public class IndexController {
 	@RequestMapping("/toLogin")
 	@PermissionLimit(limit=false) //PermissionInterceptor类默认是会拦截的 要走登录接口 如果这个设置为false就不拦截
 	public String toLogin(HttpServletRequest request, HttpServletResponse response) {
-		//TODO 必须login 不然无法访问其他接口
+		// 必须login 不然无法访问其他接口
 		if (loginService.ifLogin(request, response) != null) {
 			return "redirect:/";
 		}

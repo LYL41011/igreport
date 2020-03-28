@@ -1,7 +1,9 @@
 package com.lyl.igreport.xxljob.core.thread;
 
+import com.lyl.igreport.util.DateTimeUtil;
 import com.lyl.igreport.xxljob.core.conf.XxlJobAdminConfig;
 import com.lyl.igreport.xxljob.core.model.XxlJobLogReport;
+import org.apache.commons.lang3.time.DateUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -43,7 +45,7 @@ public class JobLogReportHelper {
                     // 1、log-report refresh: refresh log report in 3 days
                     try {
 
-                        // TODO 何时调度写log_report表
+                        // 调度写log_report表
                         List<XxlJobLogReport> triggerCountList = XxlJobAdminConfig.getAdminConfig().getIgReportJobLogDao().findSevenDayLogReport();
 
                         String consumeTimeTop10 = XxlJobAdminConfig.getAdminConfig().getIgReportJobLogDao().queryConsumeTimeTop10();
@@ -53,7 +55,24 @@ public class JobLogReportHelper {
                             e.setConsumeTimeTop10(consumeTimeTop10);
 
                         });
+                        if(triggerCountList.size()==0){
+                            //初始化统计表
+                            for (int i=0;i<7;i++){
+                                XxlJobLogReport xxlJobLogReport = new XxlJobLogReport();
+                                xxlJobLogReport.setRunningCount(0);
+                                xxlJobLogReport.setTriggerDay(DateUtils.addDays(DateTimeUtil.formatDateString(DateTimeUtil.getDayZero(new Date()),DateTimeUtil.DATE_FORMAT_DAY_ZERO),-i));
+                                xxlJobLogReport.setFailCount(0);
+                                xxlJobLogReport.setSucCount(0);
+                                xxlJobLogReport.setConsumeTimeTop10("");
+                                xxlJobLogReport.setConsumeTimeDistribute("");
+                                triggerCountList.add(xxlJobLogReport);
+
+                            }
+                        }
+
+
                         XxlJobAdminConfig.getAdminConfig().getIgReportJobStatisticDao().saveOnDuplicateKey(triggerCountList);
+
 
 
                     } catch (Exception e) {

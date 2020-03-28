@@ -7,9 +7,9 @@ import java.util.List;
 
 
 /**
- * Created by liuyanling on 2020/2/1
+ * mongo相关操作类
+ * Created by liuyanling on 2020/2/6
  */
-
 public interface MongoService {
     /**
      * 向mongo中插入报表数据

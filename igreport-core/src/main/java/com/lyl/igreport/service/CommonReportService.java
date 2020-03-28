@@ -1,6 +1,5 @@
 package com.lyl.igreport.service;
 
-import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import com.lyl.igreport.dto.CommonReportDto;
 import com.lyl.igreport.dto.QueryCommonReportDto;
@@ -11,7 +10,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
- * 通用报表
+ * 通用报表相关操作类
  * Created by liuyanling on 2020/2/6
  */
 public interface CommonReportService {

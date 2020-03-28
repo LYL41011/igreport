@@ -1,5 +1,6 @@
 create database inteport;
 use inteport;
+
 CREATE TABLE `igreport_metadata` (
   `report_name` varchar(100) NOT NULL COMMENT '报表名',
   `report_desc` varchar(100) NOT NULL COMMENT '报表描述',
@@ -109,7 +110,7 @@ CREATE TABLE `xxl_job_lock` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COMMENT '锁表';
 
 INSERT INTO `xxl_executor_info`(`id`, `app_name`, `title`, `order`, `address_type`, `address_list`) VALUES (1, 'igreport-executor', '默认执行器', 1, 1, '127.0.0.1:9999');
-INSERT INTO `igreport_user_info`(`id`, `username`, `password`, `role`, `permission`) VALUES (1, 'admin', '2116599ea79938548b11a017007dd9ca', 1, NULL);
+INSERT INTO `igreport_user_info`(`id`, `username`, `password`, `role`, `permission`) VALUES (1, 'admin', '8ddcff3a80f4189ca1c9d4d902c3c909', 1, NULL);
 INSERT INTO `igreport_user_info`(`id`, `username`, `password`, `role`, `permission`) VALUES (2, 'liuyanling', 'e10adc3949ba59abbe56e057f20f883e', 0, NULL);
 INSERT INTO `xxl_job_lock` ( `lock_name`) VALUES ( 'schedule_lock');
 

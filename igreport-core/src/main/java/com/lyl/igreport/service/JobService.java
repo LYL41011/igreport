@@ -8,9 +8,9 @@ import java.util.Date;
 import java.util.Map;
 
 /**
- * Created by liuyanling on 2020/2/1
+ * 任务相关操作类
+ * Created by liuyanling on 2020/2/6
  */
-
 public interface JobService {
 
 	/**

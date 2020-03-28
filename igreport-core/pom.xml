@@ -11,7 +11,7 @@
 
 	<groupId>com.lyl</groupId>
 	<artifactId>igreport-core</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.0.0-SNAPSHOT</version>
 	<name>igreport-core</name>
 	<description>Enterprise intelligence and general report</description>
 

@@ -1,0 +1,24 @@
+*.class
+
+# Package Files #
+*.jar
+*.war
+*.ear
+*.gz
+*.log
+target
+
+.project
+.classpath
+.settings
+
+.idea
+*.iml
+
+.DS_Store
+
+node_modules
+
+#忽略文件夹
+node_modules
+logs

@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.igreport.dao.mysql.IgReportJobStatisticDao">
+	
+	<resultMap id="XxlJobLogReport" type="com.lyl.igreport.xxljob.core.model.XxlJobLogReport" >
+		<result column="id" property="id" />
+	    <result column="trigger_day" property="triggerDay" />
+		<result column="running_count" property="runningCount" />
+	    <result column="suc_count" property="sucCount" />
+	    <result column="fail_count" property="failCount" />
+		<result column="consume_time_top10" property="consumeTimeTop10" />
+		<result column="consume_time_distribute" property="consumeTimeDistribute" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		t.id,
+		t.trigger_day,
+		t.running_count,
+		t.suc_count,
+		t.fail_count,
+		t.consume_time_top10,
+		t.consume_time_distribute
+	</sql>
+	
+	<insert id="save" parameterType="com.lyl.igreport.xxljob.core.model.XxlJobLogReport" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO igreport_job_statistic (
+			`trigger_day`,
+			`running_count`,
+			`suc_count`,
+			`fail_count`
+		) VALUES (
+			#{triggerDay},
+			#{runningCount},
+			#{sucCount},
+			#{failCount}
+		);
+		<!--<selectKey resultType="java.lang.Integer" order="AFTER" keyProperty="id">
+			SELECT LAST_INSERT_ID() 
+		</selectKey>-->
+	</insert>
+
+
+	<insert id="saveOnDuplicateKey" parameterType="com.lyl.igreport.xxljob.core.model.XxlJobLogReport">
+	INSERT INTO igreport_job_statistic (
+	`trigger_day`,
+	`running_count`,
+	`suc_count`,
+	`fail_count`,
+		`consume_time_top10`,
+		`consume_time_distribute`
+	)
+	VALUES
+
+	<foreach collection="list" item="item" index="index" separator=",">
+		(#{item.triggerDay},#{item.runningCount},#{item.sucCount},#{item.failCount},#{item.consumeTimeTop10},#{item.consumeTimeDistribute})
+	</foreach>
+	on duplicate key update running_count=VALUES(running_count),suc_count=VALUES(suc_count),fail_count=VALUES(fail_count),consume_time_distribute=VALUES(consume_time_distribute),consume_time_top10=VALUES(consume_time_top10)
+	</insert>
+
+
+
+	<update id="update" >
+        UPDATE igreport_job_statistic
+        SET `running_count` = #{runningCount},
+        	`suc_count` = #{sucCount},
+        	`fail_count` = #{failCount}
+        WHERE `trigger_day` = #{triggerDay}
+    </update>
+
+	<select id="queryLogReport" resultMap="XxlJobLogReport">
+		SELECT <include refid="Base_Column_List" />
+		FROM igreport_job_statistic AS t
+		WHERE t.trigger_day between #{triggerDayFrom} and #{triggerDayTo}
+		ORDER BY t.trigger_day ASC
+	</select>
+
+	<select id="queryLogReportTotal" resultMap="XxlJobLogReport">
+		SELECT
+			SUM(running_count) running_count,
+			SUM(suc_count) suc_count,
+			SUM(fail_count) fail_count
+		FROM igreport_job_statistic AS t
+	</select>
+
+
+</mapper>

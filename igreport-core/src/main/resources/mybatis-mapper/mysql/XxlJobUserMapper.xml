@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.igreport.dao.mysql.IgReportUserDao">
+
+	<resultMap id="XxlJobUser" type="com.lyl.igreport.xxljob.core.model.XxlJobUser" >
+		<result column="id" property="id" />
+		<result column="username" property="username" />
+	    <result column="password" property="password" />
+	    <result column="role" property="role" />
+	    <result column="permission" property="permission" />
+	</resultMap>
+
+	<sql id="Base_Column_List">
+		t.id,
+		t.username,
+		t.password,
+		t.role,
+		t.permission
+	</sql>
+
+	<select id="pageList" parameterType="java.util.HashMap" resultMap="XxlJobUser">
+		SELECT <include refid="Base_Column_List" />
+		FROM igreport_user_info AS t
+		<trim prefix="WHERE" prefixOverrides="AND | OR" >
+			<if test="username != null and username != ''">
+				AND t.username like CONCAT(CONCAT('%', #{username}), '%')
+			</if>
+			<if test="role gt -1">
+				AND t.role = #{role}
+			</if>
+		</trim>
+		ORDER BY username ASC
+		LIMIT #{offset}, #{pagesize}
+	</select>
+
+	<select id="pageListCount" parameterType="java.util.HashMap" resultType="int">
+		SELECT count(1)
+		FROM igreport_user_info AS t
+		<trim prefix="WHERE" prefixOverrides="AND | OR" >
+			<if test="username != null and username != ''">
+				AND t.username like CONCAT(CONCAT('%', #{username}), '%')
+			</if>
+			<if test="role gt -1">
+				AND t.role = #{role}
+			</if>
+		</trim>
+	</select>
+
+	<select id="userCount" resultType="int">
+		SELECT count(1)
+		FROM igreport_user_info
+	</select>
+	<select id="getAllUserName" resultType="java.lang.String">
+		SELECT username
+		FROM igreport_user_info
+	</select>
+	<select id="loadByUserName" parameterType="java.util.HashMap" resultMap="XxlJobUser">
+		SELECT <include refid="Base_Column_List" />
+		FROM igreport_user_info AS t
+		WHERE t.username = #{username}
+	</select>
+
+	<insert id="save" parameterType="com.lyl.igreport.xxljob.core.model.XxlJobUser" useGeneratedKeys="true" keyProperty="id" >
+		INSERT INTO igreport_user_info (
+			username,
+			password,
+			role,
+			permission
+		) VALUES (
+			#{username},
+			#{password},
+			#{role},
+			#{permission}
+		);
+	</insert>
+
+	<update id="update" parameterType="com.lyl.igreport.xxljob.core.model.XxlJobUser" >
+		UPDATE igreport_user_info
+		SET
+			<if test="password != null and password != ''">
+				password = #{password},
+			</if>
+			role = #{role},
+			permission = #{permission}
+		WHERE username = #{username}
+	</update>
+
+	<delete id="delete">
+		DELETE
+		FROM igreport_user_info
+		WHERE username = #{userName}
+	</delete>
+
+</mapper>

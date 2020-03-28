@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lyl.igreport.dao.mysql.IgReportDao">
+	<resultMap id="MetaResultMap" type="com.lyl.igreport.dto.CommonReportDto">
+		<result column="report_name" jdbcType="VARCHAR" property="reportName" />
+		<result column="report_desc" jdbcType="VARCHAR" property="reportDesc" />
+		<result column="data_json" jdbcType="VARCHAR" property="metaDataJson" />
+		<result column="user_authority" jdbcType="VARCHAR" property="authorizedPeople" />
+
+	</resultMap>
+	<insert id="saveOrUpdate" parameterType="com.lyl.igreport.dto.CommonReportDto">
+		INSERT INTO igreport_metadata (
+		report_name,
+		report_desc,
+		user_authority,
+		data_json
+		) VALUES (
+		#{reportName},
+		#{reportDesc},
+		#{authorizedPeople},
+		#{metaDataJson}
+		)
+		on duplicate key update report_desc=VALUES(report_desc),user_authority=VALUES(user_authority),data_json=VALUES(data_json)
+		;
+
+	</insert>
+
+	<select id="queryAllReportMeta" resultMap="MetaResultMap">
+		select report_name,report_desc,data_json,user_authority
+		from igreport_metadata
+	</select>
+
+	<select id="queryMetaDataJson" resultType="java.lang.String">
+		select data_json
+		from igreport_metadata
+		where report_name = #{reportName}
+	</select>
+
+	<select id="checkIfExist" parameterType="java.lang.String" resultType="int">
+		SELECT count(1) as cnt
+		FROM igreport_metadata AS t
+		WHERE t.report_name = #{reportName}
+	</select>
+
+	<delete id="delete" parameterType="java.lang.String">
+		DELETE
+		FROM igreport_metadata
+		WHERE report_name = #{reportName}
+	</delete>
+	<select id="queryMysql" parameterType="java.lang.String" resultType="java.util.Map">
+		<![CDATA[
+        ${value}
+        ]]>
+	</select>
+</mapper>

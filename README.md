@@ -1,8 +1,12 @@
 # IG-REPORT
 IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据源和多种落地，任务和调度均可视化管理，报表查看可控制权限，操作简单，只需30s即可出报表。
 
+- [项目演示地址](http://101.37.90.241:8081) 
+登录账号：普通用户(liuyanling/123456) 管理员用户(admin/88888888)
+关注【BDStar大数据】公众号，获取更多学习资源
+![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/bdstar.90a69042?raw=true)
 
-- [项目演示地址](101.37.90.241:8080) 普通用户:liuyanling/123456 管理员用户:admin/88888888
+
 
 # 传统报表方式的弊端
 报表是所有企业都必要的分析决策工具，传统的展示报表的方式特别麻烦，步骤大概要经历

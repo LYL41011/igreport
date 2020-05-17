@@ -45,6 +45,8 @@ public class CommonReportServiceImpl implements CommonReportService {
     public ReturnT<List<HashMap>> queryDataSourceData(CommonReportDto commonReportDto) {
         List<HashMap> result = new ArrayList<>();
         try {
+            // TODO 此处应该使用设计模式、模板模式。使用抽象类、反射等技术，将各类数据源抽象出来
+            // 本人只是为了节省时间 才写if-else 各位别模仿
             List<HashMap> queryResult = new ArrayList<>();
             if (commonReportDto.getDataSource().equals(DataSourceEnum.tidb.getCode())) {
                 queryResult = tidbDao.queryTidb(commonReportDto.getSql());

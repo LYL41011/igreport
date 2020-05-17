@@ -5,9 +5,8 @@ IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据�
 登录账号：普通用户(liuyanling/123456) 管理员用户(admin/88888888)
 
 - 关注【胖滚猪学编程】公众号，以漫画形式让编程so easy,so interesting
-
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/wchat1.jpg)
-
+ 
+![](http://bigdata-star.com/wchat1)
 
 项目详细文档可直接查看本人博客：- [项目说明文档](http://bigdata-star.com/archives/2194) 
 
@@ -32,43 +31,33 @@ IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据�
 IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30s就可以完成一个报表的配置。大概功能如下:
 
 1、首页总体概览、清晰知道整个公司目前一个报表的数量、调度的次数、并且有耗时统计、失败统计等，方便揪出那些异常的报表
-
-![image](https://yqfile.alicdn.com/22ab5aabfd93a92db4268714866f41d81dcf9c80.png)
+![](https://yqfile.alicdn.com/22ab5aabfd93a92db4268714866f41d81dcf9c80.png)
 
 2、web界面一键化配置报表、支持多种数据源(MYSQL\TIDB\Presto\Pgxl 其他也都行 自己开发就好)、只要把sql和sql对应的元数据信息配上去，其他所有事都交给IG-REPORT去完成
-
-![image](https://yqfile.alicdn.com/325571a27291caa2df74d2657799e6ac4a812e84.png)
+![](https://yqfile.alicdn.com/325571a27291caa2df74d2657799e6ac4a812e84.png)
 
 3、如果通用报表配置不能满足您的要求、完全可以自行开发某些特定报表，比如我的需求不仅仅是写个sql跑出数据来就行，我数据来源是kafka，那么你可以自行开发一个kafkaHandler。
-
-![image](https://yqfile.alicdn.com/569b70ba204b6472ee1105ee60f2bc8550bbaf00.png)
+![](https://yqfile.alicdn.com/569b70ba204b6472ee1105ee60f2bc8550bbaf00.png)
 
 3、分布式调度平台，基于quartz做了很多改造。（注:调度这块大部分是直接用的xxl-job源码，这是一个非常好的分布式调度平台）
 
 4、统一的任务管理平台，动态修改任务参数、启动、禁用任务
-
-![image](https://yqfile.alicdn.com/18f848271249fbe5406814d5ec0a23fd04764442.png)
-
-![image](https://yqfile.alicdn.com/7e75871779d4881884a1b703c0f46bcce8680677.png)
+![](https://yqfile.alicdn.com/18f848271249fbe5406814d5ec0a23fd04764442.png)
+![](https://yqfile.alicdn.com/7e75871779d4881884a1b703c0f46bcce8680677.png)
 
 5、在线查看调度结果,可动态终止运行中任务，即时生效；并且实时的展示完整的调度日志。
-
-![image](https://yqfile.alicdn.com/cab29de9d823d7422a2761008385302ac134e9ec.png)
-
-![image](https://yqfile.alicdn.com/5fe9e5961eb9ac025e14728f14872b37e2613462.png)
-
-![image](https://yqfile.alicdn.com/1a078a96026dfccbc0470222e500a2e99edc3d44.png)
+![](https://yqfile.alicdn.com/cab29de9d823d7422a2761008385302ac134e9ec.png)
+![](https://yqfile.alicdn.com/5fe9e5961eb9ac025e14728f14872b37e2613462.png)
+![](https://yqfile.alicdn.com/1a078a96026dfccbc0470222e500a2e99edc3d44.png)
 
 
 6、任务失败告警、可以配置多人的邮箱。
-
-![image](https://yqfile.alicdn.com/b9c4803ee6f249af20f154e7a80d6b3e8ff136f8.png)
+![](https://yqfile.alicdn.com/b9c4803ee6f249af20f154e7a80d6b3e8ff136f8.png)
 
 7、报表具有权限控制、创建报表的时候需指定授权用户，其他用户则无法看见。
+![](https://yqfile.alicdn.com/14e77f34fc5c00c345687d26597a9a4c9a9bd63f.png)
+![](https://yqfile.alicdn.com/27abf9335f017c8066de4b06096073f8f59d3c3c.png)
 
-![image](https://yqfile.alicdn.com/14e77f34fc5c00c345687d26597a9a4c9a9bd63f.png)
-
-![image](https://yqfile.alicdn.com/27abf9335f017c8066de4b06096073f8f59d3c3c.png)
 
 8、管理员可以查看和操控所有的任务、可以管理用户、普通用户只可以查看自己的任务
 

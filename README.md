@@ -31,7 +31,7 @@ IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据�
 IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30s就可以完成一个报表的配置。大概功能如下:
 
 1、首页总体概览、清晰知道整个公司目前一个报表的数量、调度的次数、并且有耗时统计、失败统计等，方便揪出那些异常的报表
-![](https://yqfile.alicdn.com/22ab5aabfd93a92db4268714866f41d81dcf9c80.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/05/igreport-dashbord.png)
 
 2、web界面一键化配置报表、支持多种数据源(MYSQL\TIDB\Presto\Pgxl 其他也都行 自己开发就好)、只要把sql和sql对应的元数据信息配上去，其他所有事都交给IG-REPORT去完成
 ![](http://bigdata-star.com/wp-content/uploads/2020/02/add-task.png)
@@ -87,6 +87,9 @@ IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30
 # 支持作者
 
 由于开发不易,女攻城狮更不易！因此github只公开后端源码+经编译后的前端源码，项目可运行可使用，但无法二次开发前端原始vue源码。
+
 仅需2步即可获取完整源码：
 1、在github上点个star;
 2、关注【胖滚猪学编程】公众号回复igreport即可获取
+
+

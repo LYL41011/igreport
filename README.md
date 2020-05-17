@@ -34,29 +34,29 @@ IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30
 ![](https://yqfile.alicdn.com/22ab5aabfd93a92db4268714866f41d81dcf9c80.png)
 
 2、web界面一键化配置报表、支持多种数据源(MYSQL\TIDB\Presto\Pgxl 其他也都行 自己开发就好)、只要把sql和sql对应的元数据信息配上去，其他所有事都交给IG-REPORT去完成
-![](https://yqfile.alicdn.com/325571a27291caa2df74d2657799e6ac4a812e84.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/add-task.png)
 
 3、如果通用报表配置不能满足您的要求、完全可以自行开发某些特定报表，比如我的需求不仅仅是写个sql跑出数据来就行，我数据来源是kafka，那么你可以自行开发一个kafkaHandler。
-![](https://yqfile.alicdn.com/569b70ba204b6472ee1105ee60f2bc8550bbaf00.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-add-special-task.png)
 
 3、分布式调度平台，基于quartz做了很多改造。（注:调度这块大部分是直接用的xxl-job源码，这是一个非常好的分布式调度平台）
 
 4、统一的任务管理平台，动态修改任务参数、启动、禁用任务
-![](https://yqfile.alicdn.com/18f848271249fbe5406814d5ec0a23fd04764442.png)
-![](https://yqfile.alicdn.com/7e75871779d4881884a1b703c0f46bcce8680677.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-my-task.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-edit.png)
 
 5、在线查看调度结果,可动态终止运行中任务，即时生效；并且实时的展示完整的调度日志。
-![](https://yqfile.alicdn.com/cab29de9d823d7422a2761008385302ac134e9ec.png)
-![](https://yqfile.alicdn.com/5fe9e5961eb9ac025e14728f14872b37e2613462.png)
-![](https://yqfile.alicdn.com/1a078a96026dfccbc0470222e500a2e99edc3d44.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-scheduler-task.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-log-error.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-log-running.png)
 
 
 6、任务失败告警、可以配置多人的邮箱。
-![](https://yqfile.alicdn.com/b9c4803ee6f249af20f154e7a80d6b3e8ff136f8.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-alarm.png)
 
 7、报表具有权限控制、创建报表的时候需指定授权用户，其他用户则无法看见。
-![](https://yqfile.alicdn.com/14e77f34fc5c00c345687d26597a9a4c9a9bd63f.png)
-![](https://yqfile.alicdn.com/27abf9335f017c8066de4b06096073f8f59d3c3c.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-authpeople.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/igreport-report.png)
 
 
 8、管理员可以查看和操控所有的任务、可以管理用户、普通用户只可以查看自己的任务
@@ -68,13 +68,13 @@ IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30
 那么点击左侧菜单【我的任务】，再点击【新建任务】
 按照要求配置相关信息，包括报表名称、报表描述、数据源、调度频率(即什么时候执行任务，cron表达式),授权用户,元数据格式,报表时间(对应报表的开始时间和结束时间，界面上可查看具体提示),SQL，如图所示:
 
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/demo.jpg)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/demo.png)
 
 配置完任务后可在【我的任务】中查看到该任务，默认不启动，需要用户手动【启动】，启动之前建议先点击【执行】，这样会马上执行一次，可以查看日志任务是否成功，相当于我们先测试一遍，成功的任务再启动。
 点击【执行】后可立刻在【调度日志】中查看到调度信息，点击【日志】可查看具体日志信息。
 假如任务显示成功执行，则可在【我的报表】中查询报表信息，起止时间是根据配置任务时的报表时间来决定的，比如刚刚我们跑的是按天的报表，今天是3.28日，那么起止时间分别为3.27和3.28日。
 
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/demo1.png)
+![](http://bigdata-star.com/wp-content/uploads/2020/02/demo1.png)
 
 # 开发指南
 本项目非常轻量级，开箱即用。10分钟即可完成项目搭建。

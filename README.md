@@ -28,39 +28,38 @@ IG-REPORT是一个企业级别的智能通用报表平台，支持多种数据�
 
 IG-REPORT智能报表适用于任何企业、支持多种数据源、只需要30s就可以完成一个报表的配置。大概功能如下:
 
-- 1、首页总体概览、清晰知道整个公司目前一个报表的数量、调度的次数、并且有耗时统计、失败统计等，方便揪出那些异常的报表
+1、首页总体概览、清晰知道整个公司目前一个报表的数量、调度的次数、并且有耗时统计、失败统计等，方便揪出那些异常的报表
+![image](https://yqfile.alicdn.com/22ab5aabfd93a92db4268714866f41d81dcf9c80.png)
 
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-dashbord.png)
+2、web界面一键化配置报表、支持多种数据源(MYSQL\TIDB\Presto\Pgxl 其他也都行 自己开发就好)、只要把sql和sql对应的元数据信息配上去，其他所有事都交给IG-REPORT去完成
+![image](https://yqfile.alicdn.com/325571a27291caa2df74d2657799e6ac4a812e84.png)
 
-- 2、web界面一键化配置报表、支持多种数据源(MYSQL\TIDB\Presto\Pgxl 其他也都行 自己开发就好)、只要把sql和sql对应的元数据信息配上去，其他所有事都交给IG-REPORT去完成
+3、如果通用报表配置不能满足您的要求、完全可以自行开发某些特定报表，比如我的需求不仅仅是写个sql跑出数据来就行，我数据来源是kafka，那么你可以自行开发一个kafkaHandler。
+![image](https://yqfile.alicdn.com/569b70ba204b6472ee1105ee60f2bc8550bbaf00.png)
 
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/add-task.png)
+3、分布式调度平台，基于quartz做了很多改造。（注:调度这块大部分是直接用的xxl-job源码，这是一个非常好的分布式调度平台）
+4、统一的任务管理平台，动态修改任务参数、启动、禁用任务
+![image](https://yqfile.alicdn.com/18f848271249fbe5406814d5ec0a23fd04764442.png)
 
-- 3、如果通用报表配置不能满足您的要求、完全可以自行开发某些特定报表，比如我的需求不仅仅是写个sql跑出数据来就行，我数据来源是kafka，那么你可以自行开发一个kafkaHandler。
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-add-special-task.png)
+![image](https://yqfile.alicdn.com/7e75871779d4881884a1b703c0f46bcce8680677.png)
+
+5、在线查看调度结果,可动态终止运行中任务，即时生效；并且实时的展示完整的调度日志。
+![image](https://yqfile.alicdn.com/cab29de9d823d7422a2761008385302ac134e9ec.png)
+
+![image](https://yqfile.alicdn.com/5fe9e5961eb9ac025e14728f14872b37e2613462.png)
+
+![image](https://yqfile.alicdn.com/1a078a96026dfccbc0470222e500a2e99edc3d44.png)
 
 
-- 4、分布式调度平台，基于quartz做了很多改造。（注:调度这块大部分是直接用的xxl-job源码，这是一个非常好的分布式调度平台）
-- 5、统一的任务管理平台，可动态修改任务参数、方便操控任务，比如启动、禁用任务
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-my-task.png)
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-edit.png)
+6、任务失败告警、可以配置多人的邮箱。
+![image](https://yqfile.alicdn.com/b9c4803ee6f249af20f154e7a80d6b3e8ff136f8.png)
 
+7、报表具有权限控制、创建报表的时候需指定授权用户，其他用户则无法看见。
+![image](https://yqfile.alicdn.com/14e77f34fc5c00c345687d26597a9a4c9a9bd63f.png)
 
-- 6、在线查看调度状态和结果,可动态终止运行中任务,即时生效
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-scheduler-task.png)
+![image](https://yqfile.alicdn.com/27abf9335f017c8066de4b06096073f8f59d3c3c.png)
 
-- 7、可在线实时查看完整的调度日志
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-log-error.png)
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-log-running.png)
-
-- 8、任务失败告警、可以配置多人的邮箱。
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-alarm.png)
-
-- 9、报表具有权限控制、创建报表的时候需指定授权用户，其他用户则无法看见。
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-authpeople.png)
-![image](https://github.com/LYL41011/igreport/blob/master/igreport-core/src/main/resources/static/static/img/igreport-report.png)
-
-- 10、管理员可以查看和操控所有的任务、可以管理用户、普通用户只可以查看自己的任务
+8、管理员可以查看和操控所有的任务、可以管理用户、普通用户只可以查看自己的任务
 
 
 # 一个完整配置的Demo案例
